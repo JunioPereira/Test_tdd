@@ -2,11 +2,12 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using Test_tdd.Challenge;
 
-namespace Test_tdd_test
+namespace Test_tdd_Test
 {
-    public class UnitTestChallengeService
+    [TestFixture]
+    public class UnitTestChallenge
     {
-        IChallengeService _test;
+        private IChallengeService _test;
 
         [SetUp]
         public void SetUp()
@@ -26,7 +27,7 @@ namespace Test_tdd_test
 
             int _result = _test.Outlier(_lst);
 
-            Assert.Equals(3, _result);
+            Assert.AreEqual(3, _result);
 
         }
 
@@ -44,16 +45,16 @@ namespace Test_tdd_test
 
             int[] _result = _test.GetIntegerList(_lst);
 
-            Assert.Equals(new int[]{ 2, 4, 6, 8 }, _result);
+            Assert.AreEqual(new int[] { 2, 4, 6, 8 }, _result);
 
         }
 
         [Test]
         public void FormatWordsTest()
         {
-            string _result = _test.FormatWords(new string[] {"junio", "cesar", "pereira" });
+            string _result = _test.FormatWords(new string[] { "junio", "cesar", "pereira" });
 
-            Assert.Equals("junio, cesar and pereira", _result);
+            Assert.AreEqual("junio, cesar and pereira", _result);
 
         }
     }
